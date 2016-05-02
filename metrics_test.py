@@ -2,6 +2,7 @@ import csv
 import numpy as np
 import sklearn.metrics
 from kaggle_auc import auc
+from sklearn_alternative_auc import _auc
 
 
 csv_filepath = 'answer.csv'
@@ -39,4 +40,5 @@ for u in usage:
     targets, predictions = np.array(targets), np.array(predictions)
     print u, 'Kaggle AUC:', auc(targets, predictions)
     print u, 'Sklearn AUC', sklearn.metrics.roc_auc_score(targets, predictions)
-    print
+    print u, 'Alternative sklearn AUC', _auc(targets, predictions)
+    print '--------------------------'
